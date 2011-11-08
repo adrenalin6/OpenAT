@@ -1,0 +1,7 @@
+Compile:
+make
+
+Packages:
+libcurl4-gnutls-dev & dependencies
+
+
