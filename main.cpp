@@ -1,13 +1,15 @@
+//NOTE: TEMP COMMENTED ALL CURL CALLS
 //TODO: Finish:
+// optionMenu(); get name and saved name to file.
 // fileNew(); with file saving and buffers
 // fileOld(); with file loading and loading into buffers
 // optionMenu(); with options saved to configuration file
-#define BUILD "45"
+#define BUILD "46"
 #define START "Wednesday, August 24 2011 at 15:46:32"
-#define BUILT "Friday, August 26 2011 at 13:24:28"
+#define BUILT "Wednesday, November 5 2011 at 20:56:43"
 #define SPEED2 50000
 #define SPEED3 100000
-#include <curl/curl.h>
+//#include <curl/curl.h>
 #include <iostream>
 #include <fstream>
 #include <stdio.h>
@@ -18,7 +20,7 @@ int Menu();
 int fileNew();
 int fileOld();
 int optionMenu();
-
+/*
 int Update(char CurVer[10])
 	{
 		char dVer[10];
@@ -54,6 +56,7 @@ int Update(char CurVer[10])
 		remove("check");
 		return 0;
 }
+*/
 
 int newFile()	 { std::cout << "\nError: newFile(); Not Implemented\n";
 		 }
@@ -61,7 +64,8 @@ int oldFile()    {  std::cout << "\nError: oldFile(); Not Implemented\n";
 		 }
 int optionMenu() {
 	int buf1;
-	string buf2, buf3, buf4("save-name"), line;
+//	char *buf2[30];
+	string buf3, buf4("save-name"), line;
 	for (int a=0; a<24; a++) { typeSlow(SPEED2,"\n"); }
 		typeSlow(SPEED2,"OpenAT V0.01\n");
 		typeSlow(SPEED2,"Option Menu:\n");
@@ -74,14 +78,11 @@ int optionMenu() {
 			switch (buf1) {
 
 		 case 1: { for (int a=0; a<24; a++) { typeSlow(SPEED2,"\n"); }
-			 typeSlow(SPEED2,"Journal Name: ");
-			 getline(cin,buf2);
+			 typeSlow(SPEED2,"File Name: ");
+			// getline(cin,buf2);
 				ifstream buffer1("OpenAT.conf", ios::in | ios::out);
-				do { getline(buffer1,line); }
-				while (!buffer1.eof() && line != buf4);
-					if (!buffer1.eof()) {
-					    std::cout << line << std::endl;
-                    }
+	//			getline(buf2,buffer1);
+			//	std::cout << buf2 << std::endl;
 					buffer1.close();
             }
         }
@@ -114,7 +115,7 @@ int Menu(int argc)
 				default: typeSlow(SPEED2,"\nError: Invalid Number!\n");
 					 for (int a=0; a<23; a++) { typeSlow(SPEED3,"\n"); }
 					 break;	}
-		case 2:	Update(BUILD);
+		case 2:	//Update(BUILD);
 			break;
 		case 3: std::cout << std::endl;
 	for (int a=0; a<22; a++)	{ typeSlow(SPEED3,"\n"); }
